@@ -13,6 +13,8 @@
 
 @property NSMutableArray *objects;
 @end
+NSArray *products;
+
 
 @implementation MasterViewController
 
@@ -40,12 +42,12 @@
     
     NSString *filePath = [[NSBundle mainBundle] pathForResource:@"products" ofType:@"json"];
     NSData *data = [NSData dataWithContentsOfFile:filePath];
-    NSArray *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+    products = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
     
     //NSArray* products = @[@"ALM",@"UFT",@"AGM"];
-    for (NSString * product in json){
-        [self insertNewObject: ((NSDictionary *)product)[@"name"]];
-    }
+//    for (NSString * product in json){
+//        [self insertNewObject: ((NSDictionary *)product)[@"name"]];
+//    }
     
 }
 - (void)insertNewObject:(NSString*)product {
@@ -74,14 +76,19 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.objects.count;
+    return products.count;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
 
-    NSDate *object = self.objects[indexPath.row];
-    cell.textLabel.text = [object description];
+//    NSDate *object = self.objects[indexPath.row];
+//    cell.textLabel.text = [object description];
+//    return cell;
+
+    cell.textLabel.text = ((NSDictionary *)products[indexPath.row])[@"name"];
     return cell;
+
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
