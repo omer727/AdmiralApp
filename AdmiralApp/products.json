@@ -1,0 +1,41 @@
+ [
+  {
+  "_id": "AGM",
+  "name": "AGM"
+  },
+  {
+  "_id": "ALM",
+  "__v": 0,
+  "active": true,
+  "name": "ALM"
+  },
+  {
+  "_id": "LR",
+  "__v": 0,
+  "name": "LR"
+  },
+  {
+  "_id": "LeanFT",
+  "name": "LeanFT",
+  "__v": 0
+  },
+  {
+  "_id": "PC",
+  "__v": 0,
+  "name": "PC"
+  },
+  {
+  "_id": "Sprinter",
+  "__v": 0,
+  "name": "Sprinter"
+  },
+  {
+  "_id": "StormRunner",
+  "name": "StormRunner"
+  },
+  {
+  "_id": "UFT",
+  "__v": 0,
+  "name": "UFT"
+  }
+  ]
